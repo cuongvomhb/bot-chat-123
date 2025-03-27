@@ -12,7 +12,7 @@ function App() {
     setInput("");
 
     try {
-      const serverUrl = process.env.SERVER_URL;
+      const serverUrl = process.env.REACT_APP_SERVER_URL;
       const res = await axios.post(`${serverUrl}/chat`, { message: input });
       setMessages([...newMessages, { text: res.data.response, sender: "bot" }]);
     } catch (error) {
