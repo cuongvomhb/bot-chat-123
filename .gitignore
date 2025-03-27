@@ -130,3 +130,4 @@ temp/
 
 # Remix build output
 .build/
+.vercel

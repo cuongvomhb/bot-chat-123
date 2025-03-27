@@ -12,7 +12,7 @@ function App() {
     setInput("");
 
     try {
-      const res = await axios.post("http://localhost:5000/chat", { message: input });
+      const res = await axios.post(`https://bot-chat-123-gv1twbx1l-cuongs-projects-907f65ad.vercel.app/chat`, { message: input });
       setMessages([...newMessages, { text: res.data.response, sender: "bot" }]);
     } catch (error) {
       console.error("Error fetching response");
