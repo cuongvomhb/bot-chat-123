@@ -12,7 +12,8 @@ function App() {
     setInput("");
 
     try {
-      const res = await axios.post(`https://bot-chat-123.vercel.app/chat`, { message: input });
+      const serverUrl = process.env.SERVER_URL;
+      const res = await axios.post(`${serverUrl}/chat`, { message: input });
       setMessages([...newMessages, { text: res.data.response, sender: "bot" }]);
     } catch (error) {
       console.error("Error fetching response");

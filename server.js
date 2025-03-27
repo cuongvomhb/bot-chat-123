@@ -13,7 +13,8 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-pro-exp-03-25" });
+    const modelCode = process.env.MODEL_CODE;
+    const model = genAI.getGenerativeModel({ model: modelCode });
     const chat = model.startChat();
     const result = await chat.sendMessage(message);
     res.json({ response: result.response.text() });
